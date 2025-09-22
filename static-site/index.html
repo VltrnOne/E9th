@@ -10,7 +10,7 @@
   <meta property="og:title" content="E9TH — where utility comes full circle." />
   <meta property="og:description" content="Unlock discounts, early access, and exclusive products on Solana." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/e9th-og.png" />
+  <meta property="og:image" content="/assets/og/e9th-og.png" />
   <meta property="og:url" content="https://e9th.org/" />
 
   <!-- Twitter Card -->
@@ -18,9 +18,9 @@
   <meta name="twitter:site" content="@E9TH" />
   <meta name="twitter:title" content="E9TH — where utility comes full circle." />
   <meta name="twitter:description" content="Unlock discounts, early access, and exclusive products on Solana." />
-  <meta name="twitter:image" content="/assets/e9th-og.png" />
+  <meta name="twitter:image" content="/assets/og/e9th-og.png" />
 
-  <link rel="icon" href="/assets/e9th-favicon.svg" />
+  <link rel="icon" href="/assets/favicon/e9th-favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
@@ -36,59 +36,64 @@
     .brand{display:flex;gap:12px;align-items:center}
     .brand img{width:36px;height:36px}
     nav a{margin:0 10px;color:var(--silver)}
-    .hero{padding:64px 0 24px;display:flex;flex-direction:column;align-items:center;text-align:center}
-    .hero-content{max-width:800px;margin-bottom:48px}
-    .hero h1{font-size:48px;line-height:1.1;margin:0 0 16px}
-    .hero h1 .highlight{color:var(--blue)}
-    .hero p{color:var(--muted);font-size:20px;margin-bottom:24px}
-    .hero-emblem{display:flex;flex-direction:column;align-items:center;gap:32px}
-    .emblem{width:200px;height:200px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--blue));display:flex;align-items:center;justify-content:center;position:relative}
-    .emblem::before{content:'';position:absolute;inset:-4px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--blue));opacity:0.3;filter:blur(20px)}
-    .emblem-inner{background:var(--bg);width:180px;height:180px;border-radius:50%;display:flex;align-items:center;justify-content:center}
-    .emblem-text{font-size:24px;font-weight:800;color:var(--text)}
-    .hero-stats{display:flex;gap:32px;flex-wrap:wrap;justify-content:center}
-    .stat{text-align:center}
-    .stat-value{font-size:24px;font-weight:800;color:var(--text);display:block}
-    .stat-label{color:var(--muted);font-size:14px;margin-top:4px}
-    .cta{display:flex;gap:12px;margin:20px 0;justify-content:center}
+    .hero{padding:64px 0 24px;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+    .hero h1{font-size:44px;line-height:1.1;margin:0 0 12px}
+    .hero p{color:var(--muted);font-size:18px}
+    .cta{display:flex;gap:12px;margin-top:20px}
     .btn{padding:12px 18px;border-radius:10px;border:1px solid transparent;font-weight:600;cursor:pointer}
     .btn-primary{background:linear-gradient(135deg,var(--violet),var(--blue));color:#0A0A0A}
     .btn-secondary{border-color:#303244;color:var(--text);background:#151621}
     .pill{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:#8BEAFF;background:#0f1a2b;border:1px solid #1b2d4a;padding:6px 10px;border-radius:999px}
     .grid{display:grid;gap:16px}
-    .utility-grid{grid-template-columns:repeat(3,1fr);margin:32px 0}
-    .security-grid{grid-template-columns:repeat(5,1fr);margin:32px 0}
-    .roadmap-grid{grid-template-columns:repeat(3,1fr);margin:32px 0}
-    .card{background:var(--card);border:1px solid #242537;border-radius:14px;padding:18px;text-align:center}
+    .features{grid-template-columns:repeat(3,1fr);margin:36px 0}
+    .card{background:var(--card);border:1px solid #242537;border-radius:14px;padding:18px}
     .card h3{margin:0 0 8px}
-    .card-icon{font-size:32px;margin-bottom:12px}
     .muted{color:var(--muted)}
-    .section{padding:48px 0;text-align:center}
-    .section h2{font-size:36px;margin:0 0 16px}
-    .section-subtitle{font-size:18px;color:var(--muted);margin-bottom:24px}
-    .tokenomics{grid-template-columns:1fr 1fr;margin:32px 0}
-    .allocation-list{display:flex;flex-direction:column;gap:12px}
-    .allocation-item{display:flex;align-items:center;gap:12px}
-    .allocation-dot{width:12px;height:12px;border-radius:50%}
-    .allocation-dot.purple{background:var(--violet)}
-    .allocation-dot.blue{background:var(--blue)}
-    .roadmap-card{position:relative}
-    .roadmap-icon{width:40px;height:40px;border-radius:50%;background:var(--violet);color:var(--bg);display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto 16px}
-    .list{margin:10px 0 0;padding-left:18px;text-align:left}
-    .list li{margin-bottom:8px}
+    .section{padding:28px 0}
+    .tokenomics{grid-template-columns:1.2fr .8fr}
+    .list{margin:10px 0 0;padding-left:18px}
+    .ticker{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+    .ticker .chip{background:#10131b;border:1px solid #23263a;padding:8px 10px;border-radius:10px;font-size:13px}
     footer{border-top:1px solid #202233;margin-top:36px;padding:24px 0;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     @media (max-width:960px){
-      .utility-grid{grid-template-columns:repeat(2,1fr)}
-      .security-grid{grid-template-columns:repeat(2,1fr)}
-      .roadmap-grid{grid-template-columns:1fr}
-      .hero-stats{flex-direction:column;gap:16px}
+      .hero{grid-template-columns:1fr}
+      .features,.tokenomics{grid-template-columns:1fr}
       nav{display:none}
     }
-    @media (max-width:640px){
-      .utility-grid,.security-grid{grid-template-columns:1fr}
-      .hero h1{font-size:36px}
-      .emblem{width:150px;height:150px}
-      .emblem-inner{width:130px;height:130px}
+    .hero-art {
+      height:100%;
+      display:flex;align-items:center;justify-content:center;text-align:center;
+      background:
+        radial-gradient(120px 120px at 70% 20%, rgba(126,97,255,.35), transparent 60%),
+        radial-gradient(180px 160px at 30% 70%, rgba(62,195,255,.28), transparent 60%),
+        var(--card);
+      border:1px solid #23263a;border-radius:12px;
+    }
+    .hero-art img{max-width:92%;border-radius:12px}
+
+    .pie-wrap{display:grid;grid-template-columns:160px 1fr;gap:14px;align-items:center}
+    .pie{max-width:220px}
+    .pie .bg{fill:none;stroke:#1f2233;stroke-width:6}
+    .pie .slice{fill:none;stroke-width:6;transform:rotate(-90deg);transform-origin:50% 50%}
+
+    /* Brand slice colors */
+    .pie .sale{stroke:#7B61FF}  /* Electric Violet */
+    .pie .team{stroke:#3EC3FF}  /* Aurora Blue */
+    .pie .mkt{stroke:#C9CED6}   /* Silver */
+    .pie .liq{stroke:#9AA1AC}   /* Muted slate */
+    .pie .tre{stroke:#50E3C2}   /* Accent teal */
+
+    .legend{display:grid;gap:6px;font-size:14px;color:#9AA1AC}
+    .legend .swatch{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:8px;vertical-align:middle}
+    .legend .sale{background:#7B61FF}
+    .legend .team{background:#3EC3FF}
+    .legend .mkt{background:#C9CED6}
+    .legend .liq{background:#9AA1AC}
+    .legend .tre{background:#50E3C2}
+
+    @media (max-width:720px){
+      .pie-wrap{grid-template-columns:1fr}
+      .pie{margin:auto}
     }
   </style>
 </head>
@@ -96,166 +101,132 @@
   <div class="container">
     <header aria-label="site header">
       <div class="brand">
-        <img src="/assets/e9th-logo.svg" alt="E9TH logo" />
+        <img src="/assets/e9th-logo.png" alt="E9TH logo" width="36" height="36" />
         <strong>E9TH</strong>
       </div>
       <nav aria-label="primary">
         <a href="#utility">Utility</a>
         <a href="#tokenomics">Tokenomics</a>
-        <a href="#staking">Staking</a>
         <a href="#security">Security</a>
         <a href="/litepaper">Litepaper</a>
+        <a href="https://twitter.com/E9TH" rel="noopener">Twitter</a>
       </nav>
-      <div class="cta">
-        <a class="btn btn-primary" href="/app.html">Launch App</a>
-      </div>
     </header>
 
     <section class="hero" id="top">
-      <div class="hero-content">
-        <h1>E9TH — where utility comes full <span class="highlight">circle</span>.</h1>
+      <div>
+        <h1>E9TH — where utility comes full circle.</h1>
         <p>Unlock discounts, early access, and exclusive products on Solana.</p>
         <div class="cta">
           <a class="btn btn-primary" href="/app.html">Launch App</a>
           <a class="btn btn-secondary" href="/litepaper">Read Litepaper</a>
         </div>
-      </div>
-      <div class="hero-emblem">
-        <div class="emblem">
-          <div class="emblem-inner">
-            <span class="emblem-text">E9TH</span>
-          </div>
+        <div class="ticker" aria-label="quick facts">
+          <span class="chip">Ticker: <strong>E9TH</strong></span>
+          <span class="chip">Chain: <strong>Solana</strong></span>
+          <span class="chip">Supply: <strong>10,000,000,000</strong></span>
+          <span class="chip">Model: <strong>Deflationary</strong></span>
         </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <div class="stat-value">10B</div>
-            <div class="stat-label">Total Supply</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">$0.00005</div>
-            <div class="stat-label">Initial Price</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">Deflationary</div>
-            <div class="stat-label">Token Model</div>
-          </div>
+      </div>
+
+      <!-- Use custom branded imagery (no stock). Replace these with your actual assets. -->
+      <div aria-hidden="true">
+        <div class="card hero-art">
+          <img src="/assets/hero/e9th-hero-circle.png" alt="" />
         </div>
       </div>
     </section>
 
-    <section class="section" id="utility">
-      <h2>E9TH</h2>
-      <p class="section-subtitle">Get started today. Buy, hold, and unlock more with every token.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="/app.html">Launch App</a>
-      </div>
-      <div class="grid utility-grid">
+    <section id="utility" class="section">
+      <div class="grid features">
         <div class="card">
-          <div class="card-icon">🎫</div>
-          <h3>Discounts on services</h3>
-          <p class="muted">Pay less with E9TH.</p>
+          <h3>Instant Utility</h3>
+          <p class="muted">Use E9TH to redeem discounts, access tools, and unlock services from day one.</p>
         </div>
         <div class="card">
-          <div class="card-icon">🚀</div>
-          <h3>Early access</h3>
-          <p class="muted">Be first in line for new products and drops.</p>
+          <h3>Deflationary Design</h3>
+          <p class="muted">Transfers apply a configurable burn, decreasing supply over time.</p>
         </div>
         <div class="card">
-          <div class="card-icon">🔒</div>
-          <h3>Staking</h3>
-          <p class="muted">Lock tokens, earn transparent rewards.</p>
+          <h3>Transparent Security</h3>
+          <p class="muted">Multisig ownership, pause/blacklist controls, on-chain logs, and optional timelocks.</p>
         </div>
-        <div class="card">
-          <div class="card-icon">🎁</div>
-          <h3>Airdrops</h3>
-          <p class="muted">Batched and verifiable, rewarding the community.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🔑</div>
-          <h3>Exclusives</h3>
-          <p class="muted">Gated software, solutions, and premium offerings.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">⚡</div>
-          <h3>Coming Soon</h3>
-          <p class="muted">More utilities in development.</p>
-        </div>
-      </div>
-      <div class="cta">
-        <a class="btn btn-primary" href="/app.html">Explore Utilities</a>
       </div>
     </section>
 
-    <section class="section" id="tokenomics">
-      <h2>A Sustainable Model for Long-Term Growth</h2>
+    <section id="tokenomics" class="section">
       <div class="grid tokenomics">
         <div class="card">
-          <h3>Token Details</h3>
+          <h3>Tokenomics Snapshot</h3>
           <ul class="list">
             <li><strong>Ticker:</strong> E9TH</li>
-            <li><strong>Chain:</strong> Solana (SPL / Token-2022)</li>
-            <li><strong>Supply:</strong> 10,000,000,000</li>
+            <li><strong>Chain:</strong> Solana (SPL / Token-2022 compatible)</li>
+            <li><strong>Total Supply:</strong> 10,000,000,000</li>
+            <li><strong>Initial Price:</strong> $0.00005</li>
           </ul>
+          <div class="cta"><a class="btn btn-secondary" href="/tokenomics">View Full Tokenomics</a></div>
         </div>
+
         <div class="card">
-          <h3>Token Allocation</h3>
-          <div class="allocation-list">
-            <div class="allocation-item">
-              <div class="allocation-dot purple"></div>
-              <span>Public Sale: 40%</span>
-            </div>
-            <div class="allocation-item">
-              <div class="allocation-dot blue"></div>
-              <span>Team & Founders: 20%</span>
-            </div>
-            <div class="allocation-item">
-              <div class="allocation-dot purple"></div>
-              <span>Marketing & Rewards: 15%</span>
-            </div>
-            <div class="allocation-item">
-              <div class="allocation-dot blue"></div>
-              <span>Liquidity: 15%</span>
-            </div>
-            <div class="allocation-item">
-              <div class="allocation-dot purple"></div>
-              <span>Treasury: 10%</span>
-            </div>
-          </div>
+          <h3>Allocation</h3>
+          <figure class="pie-wrap">
+            <svg viewBox="0 0 42 42" class="pie" role="img" aria-labelledby="allocTitle allocDesc">
+              <title id="allocTitle">E9TH Token Allocation</title>
+              <desc id="allocDesc">Public Sale 40%, Team & Founders 20%, Marketing & Rewards 15%, Liquidity 15%, Treasury 10%.</desc>
+              <!-- background circle -->
+              <circle class="bg" cx="21" cy="21" r="15.915" />
+
+              <!-- slices (stroke-dasharray sums to 100) -->
+              <!-- Public Sale 40% -->
+              <circle class="slice sale" cx="21" cy="21" r="15.915"
+                      stroke-dasharray="40 60" stroke-dashoffset="25" />
+              <!-- Team 20% -->
+              <circle class="slice team" cx="21" cy="21" r="15.915"
+                      stroke-dasharray="20 80" stroke-dashoffset="-15" />
+              <!-- Marketing 15% -->
+              <circle class="slice mkt" cx="21" cy="21" r="15.915"
+                      stroke-dasharray="15 85" stroke-dashoffset="-35" />
+              <!-- Liquidity 15% -->
+              <circle class="slice liq" cx="21" cy="21" r="15.915"
+                      stroke-dasharray="15 85" stroke-dashoffset="-50" />
+              <!-- Treasury 10% -->
+              <circle class="slice tre" cx="21" cy="21" r="15.915"
+                      stroke-dasharray="10 90" stroke-dashoffset="-65" />
+            </svg>
+
+            <figcaption class="legend">
+              <div><span class="swatch sale"></span> Public Sale — 40%</div>
+              <div><span class="swatch team"></span> Team & Founders — 20%</div>
+              <div><span class="swatch mkt"></span> Marketing & Rewards — 15%</div>
+              <div><span class="swatch liq"></span> Liquidity — 15%</div>
+              <div><span class="swatch tre"></span> Treasury — 10%</div>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <section class="section" id="security">
-      <h2>Security</h2>
-      <div class="grid security-grid">
+    <section id="security" class="section">
+      <div class="grid" style="grid-template-columns:1fr 1fr;gap:16px">
         <div class="card">
-          <div class="card-icon">🔑</div>
-          <h3>Role-based access</h3>
-          <p class="muted">Owner, Operator, Treasury</p>
+          <h3>Security & Governance</h3>
+          <ul class="list">
+            <li>Owner (multisig), Operator, and Treasury roles</li>
+            <li>Emergency pause and blacklist protection</li>
+            <li>On-chain logs and public changelog</li>
+            <li>Optional timelocks for critical changes</li>
+          </ul>
+          <div class="cta"><a class="btn btn-secondary" href="/security">Read Security Overview</a></div>
         </div>
         <div class="card">
-          <div class="card-icon">🔒</div>
-          <h3>Multisig controls</h3>
-          <p class="muted">For sensitive actions</p>
+          <h3>Staking & Airdrops</h3>
+          <ul class="list">
+            <li>Simple, transparent staking rewards from a defined pool</li>
+            <li>Batched, verifiable airdrops with public transaction records</li>
+            <li>Exclusive access to gated software and solutions</li>
+          </ul>
+          <div class="cta"><a class="btn btn-secondary" href="/staking">Stake E9TH</a></div>
         </div>
-        <div class="card">
-          <div class="card-icon">⚠️</div>
-          <h3>Emergency pause</h3>
-          <p class="muted">& blacklist protection</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">⏰</div>
-          <h3>Optional timelocks</h3>
-          <p class="muted">For critical changes</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">📖</div>
-          <h3>Open-source code</h3>
-          <p class="muted">& audits</p>
-        </div>
-      </div>
-      <div class="cta">
-        <a class="btn btn-primary" href="/app.html">Read Security Overview</a>
       </div>
     </section>
 
@@ -267,32 +238,39 @@
           <h3>Phase 1: Foundation</h3>
           <ul class="list">
             <li>Token launch</li>
-            <li>Staking v1</li>
+            <li>Explorer metadata</li>
             <li>Website & litepaper</li>
+            <li>Staking v1</li>
           </ul>
-          <div class="pill">In Progress</div>
         </div>
         <div class="card roadmap-card">
           <div class="roadmap-icon">2</div>
-          <h3>Phase 2: Integration</h3>
+          <h3>Phase 2: Expansion</h3>
           <ul class="list">
-            <li>Partner integrations</li>
-            <li>Holder dashboard</li>
-            <li>Live burn tracker</li>
+            <li>Partner utilities</li>
+            <li>Dashboard with burn tracker</li>
+            <li>First curated airdrops</li>
+            <li>Mobile-friendly portal</li>
           </ul>
         </div>
         <div class="card roadmap-card">
           <div class="roadmap-icon">3</div>
-          <h3>Phase 3: Expansion</h3>
+          <h3>Phase 3: Ecosystem</h3>
           <ul class="list">
-            <li>Expanded marketplace</li>
-            <li>Mobile app</li>
-            <li>Scaling rewards</li>
+            <li>Expanded utility marketplace</li>
+            <li>Broader integrations</li>
+            <li>Governance features</li>
+            <li>Community initiatives</li>
           </ul>
         </div>
       </div>
-      <div class="cta">
-        <a class="btn btn-primary" href="/app.html">Follow Updates</a>
+    </section>
+
+    <section class="section" id="coming-soon">
+      <div class="card">
+        <h3>Coming Soon</h3>
+        <p class="muted">Additional utilities are in development and will be announced here and on our Twitter.</p>
+        <div class="cta"><a class="btn btn-secondary" href="/updates">Explore Utilities</a></div>
       </div>
     </section>
 
