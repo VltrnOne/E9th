@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>E9TH App — Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="E9TH Dashboard - Manage your tokens, stake, and track deflation metrics." />
+
+  <link rel="icon" href="/assets/e9th-favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- Solana Web3.js -->
+  <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+  <script src="https://unpkg.com/@solana/wallet-adapter-base@latest/lib/index.iife.min.js"></script>
+  <script src="https://unpkg.com/@solana/wallet-adapter-wallets@latest/lib/index.iife.min.js"></script>
+  <script src="https://unpkg.com/@solana/wallet-adapter-react@latest/lib/index.iife.min.js"></script>
+
+  <style>
+    :root {
+      --bg:#0B0B10; --card:#151621; --text:#E9ECF1; --muted:#9AA1AC;
+      --violet:#7B61FF; --blue:#3EC3FF; --silver:#C9CED6; --ok:#34d399;
+    }
+    *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    a{color:var(--blue);text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:36px;height:36px}
+    nav a{margin:0 10px;color:var(--silver)}
+    .wallet-section{display:flex;align-items:center;gap:16px}
+    .btn{padding:12px 18px;border-radius:10px;border:1px solid transparent;font-weight:600;cursor:pointer}
+    .btn-primary{background:linear-gradient(135deg,var(--violet),var(--blue));color:#0A0A0A}
+    .btn-secondary{border-color:#303244;color:var(--text);background:#151621}
+    .pill{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:#8BEAFF;background:#0f1a2b;border:1px solid #1b2d4a;padding:6px 10px;border-radius:999px}
+    .grid{display:grid;gap:16px}
+    .features{grid-template-columns:repeat(3,1fr);margin:36px 0}
+    .card{background:var(--card);border:1px solid #242537;border-radius:14px;padding:18px}
+    .card h3{margin:0 0 8px}
+    .muted{color:var(--muted)}
+    .section{padding:28px 0}
+    .tokenomics{grid-template-columns:1.2fr .8fr}
+    .list{margin:10px 0 0;padding-left:18px}
+    .ticker{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+    .ticker .chip{background:#10131b;border:1px solid #23263a;padding:8px 10px;border-radius:10px;font-size:13px}
+    .dashboard{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+    .stat{text-align:center;padding:20px}
+    .stat-value{font-size:2rem;font-weight:800;color:var(--violet);display:block}
+    .stat-label{color:var(--muted);font-size:0.9rem;margin-top:4px}
+    .wallet-info{display:flex;align-items:center;gap:12px;padding:12px;background:#10131b;border-radius:10px;border:1px solid #23263a}
+    .wallet-address{font-family:monospace;font-size:0.9rem;color:var(--silver)}
+    .loading{text-align:center;color:var(--muted);padding:40px}
+    .error{background:#2d1b1b;border:1px solid #5c2a2a;color:#ff6b6b;padding:12px;border-radius:8px;margin:16px 0}
+    .success{background:#1b2d1b;border:1px solid #2a5c2a;color:#34d399;padding:12px;border-radius:8px;margin:16px 0}
+    footer{border-top:1px solid #202233;margin-top:36px;padding:24px 0;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    @media (max-width:960px){
+      .features,.tokenomics,.dashboard{grid-template-columns:1fr}
+      nav{display:none}
+      .wallet-section{flex-direction:column;align-items:stretch}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <img src="/assets/e9th-logo.png" alt="E9TH logo" />
+        <strong>E9TH</strong>
+      </div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="#utility">Utility</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#security">Security</a>
+        <a href="/litepaper">Litepaper</a>
+      </nav>
+      <div class="wallet-section">
+        <div id="wallet-info" class="wallet-info" style="display:none">
+          <span>Connected:</span>
+          <span id="wallet-address" class="wallet-address"></span>
+        </div>
+        <button id="connect-wallet" class="btn btn-primary">Connect Wallet</button>
+        <button id="disconnect-wallet" class="btn btn-secondary" style="display:none">Disconnect</button>
+      </div>
+    </header>
+
+    <main>
+      <div id="loading" class="loading">
+        <p>Loading E9TH Dashboard...</p>
+      </div>
+
+      <div id="dashboard" style="display:none">
+        <section class="section">
+          <h2>Your E9TH Holdings</h2>
+          <div class="grid dashboard">
+            <div class="card">
+              <div class="stat">
+                <span id="balance" class="stat-value">0</span>
+                <div class="stat-label">E9TH Balance</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="stat">
+                <span id="staked" class="stat-value">0</span>
+                <div class="stat-label">Staked Amount</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="stat">
+                <span id="rewards" class="stat-value">0</span>
+                <div class="stat-label">Pending Rewards</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Token Actions</h2>
+          <div class="grid dashboard">
+            <div class="card">
+              <h3>Stake E9TH</h3>
+              <p class="muted">Lock your tokens to earn rewards</p>
+              <div style="margin:16px 0">
+                <input type="number" id="stake-amount" placeholder="Amount to stake" style="width:100%;padding:12px;border:1px solid #303244;border-radius:8px;background:#0B0B10;color:var(--text);margin-bottom:12px">
+                <button id="stake-btn" class="btn btn-primary" style="width:100%">Stake Tokens</button>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Unstake E9TH</h3>
+              <p class="muted">Withdraw your staked tokens</p>
+              <div style="margin:16px 0">
+                <input type="number" id="unstake-amount" placeholder="Amount to unstake" style="width:100%;padding:12px;border:1px solid #303244;border-radius:8px;background:#0B0B10;color:var(--text);margin-bottom:12px">
+                <button id="unstake-btn" class="btn btn-secondary" style="width:100%">Unstake Tokens</button>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Claim Rewards</h3>
+              <p class="muted">Claim your staking rewards</p>
+              <div style="margin:16px 0">
+                <button id="claim-btn" class="btn btn-primary" style="width:100%">Claim Rewards</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Deflation Metrics</h2>
+          <div class="grid dashboard">
+            <div class="card">
+              <div class="stat">
+                <span id="total-burned" class="stat-value">0</span>
+                <div class="stat-label">Total Burned</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="stat">
+                <span id="burn-rate" class="stat-value">2.5%</span>
+                <div class="stat-label">Current Burn Rate</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="stat">
+                <span id="circulating-supply" class="stat-value">0</span>
+                <div class="stat-label">Circulating Supply</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="error-message" class="error" style="display:none"></div>
+      <div id="success-message" class="success" style="display:none"></div>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> E9TH • Not a DAO • Not financial advice.</div>
+      <div>
+        <a href="https://twitter.com/E9TH" rel="noopener">Twitter</a> •
+        <a href="/litepaper">Litepaper</a> •
+        <a href="/contact">Contact</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // E9TH Dashboard JavaScript
+    let wallet = null;
+    let connection = null;
+    let publicKey = null;
+
+    // Initialize Solana connection
+    function initSolana() {
+      if (typeof solana !== 'undefined' && solana.isPhantom) {
+        wallet = solana;
+        connection = new solanaWeb3.Connection('https://api.devnet.solana.com');
+        console.log('Solana wallet detected');
+      } else {
+        showError('Please install Phantom wallet to use this app');
+        return false;
+      }
+      return true;
+    }
+
+    // Connect wallet
+    async function connectWallet() {
+      try {
+        if (!initSolana()) return;
+        
+        const response = await wallet.connect();
+        publicKey = response.publicKey;
+        
+        document.getElementById('wallet-info').style.display = 'flex';
+        document.getElementById('wallet-address').textContent = publicKey.toString().slice(0, 8) + '...' + publicKey.toString().slice(-8);
+        document.getElementById('connect-wallet').style.display = 'none';
+        document.getElementById('disconnect-wallet').style.display = 'block';
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+        
+        await loadUserData();
+        showSuccess('Wallet connected successfully!');
+      } catch (err) {
+        showError('Failed to connect wallet: ' + err.message);
+      }
+    }
+
+    // Disconnect wallet
+    function disconnectWallet() {
+      wallet.disconnect();
+      publicKey = null;
+      document.getElementById('wallet-info').style.display = 'none';
+      document.getElementById('connect-wallet').style.display = 'block';
+      document.getElementById('disconnect-wallet').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'none';
+      document.getElementById('loading').style.display = 'block';
+    }
+
+    // Load user data
+    async function loadUserData() {
+      if (!publicKey) return;
+      
+      try {
+        // In a real implementation, you would:
+        // 1. Get token balance from the E9TH token account
+        // 2. Get staking information from the program
+        // 3. Get deflation metrics from on-chain data
+        
+        // For now, we'll show placeholder data
+        document.getElementById('balance').textContent = '1,000,000';
+        document.getElementById('staked').textContent = '500,000';
+        document.getElementById('rewards').textContent = '2,500';
+        document.getElementById('total-burned').textContent = '100,000';
+        document.getElementById('circulating-supply').textContent = '9,900,000';
+      } catch (err) {
+        showError('Failed to load user data: ' + err.message);
+      }
+    }
+
+    // Stake tokens
+    async function stakeTokens() {
+      const amount = document.getElementById('stake-amount').value;
+      if (!amount || amount <= 0) {
+        showError('Please enter a valid amount');
+        return;
+      }
+      
+      try {
+        // In a real implementation, you would:
+        // 1. Create a transaction to call the stake instruction
+        // 2. Send the transaction to the network
+        // 3. Wait for confirmation
+        
+        showSuccess(`Staked ${amount} E9TH tokens successfully!`);
+        document.getElementById('stake-amount').value = '';
+        await loadUserData();
+      } catch (err) {
+        showError('Failed to stake tokens: ' + err.message);
+      }
+    }
+
+    // Unstake tokens
+    async function unstakeTokens() {
+      const amount = document.getElementById('unstake-amount').value;
+      if (!amount || amount <= 0) {
+        showError('Please enter a valid amount');
+        return;
+      }
+      
+      try {
+        // In a real implementation, you would:
+        // 1. Create a transaction to call the unstake instruction
+        // 2. Send the transaction to the network
+        // 3. Wait for confirmation
+        
+        showSuccess(`Unstaked ${amount} E9TH tokens successfully!`);
+        document.getElementById('unstake-amount').value = '';
+        await loadUserData();
+      } catch (err) {
+        showError('Failed to unstake tokens: ' + err.message);
+      }
+    }
+
+    // Claim rewards
+    async function claimRewards() {
+      try {
+        // In a real implementation, you would:
+        // 1. Create a transaction to call the claim rewards instruction
+        // 2. Send the transaction to the network
+        // 3. Wait for confirmation
+        
+        showSuccess('Rewards claimed successfully!');
+        await loadUserData();
+      } catch (err) {
+        showError('Failed to claim rewards: ' + err.message);
+      }
+    }
+
+    // Show error message
+    function showError(message) {
+      const errorDiv = document.getElementById('error-message');
+      errorDiv.textContent = message;
+      errorDiv.style.display = 'block';
+      setTimeout(() => {
+        errorDiv.style.display = 'none';
+      }, 5000);
+    }
+
+    // Show success message
+    function showSuccess(message) {
+      const successDiv = document.getElementById('success-message');
+      successDiv.textContent = message;
+      successDiv.style.display = 'block';
+      setTimeout(() => {
+        successDiv.style.display = 'none';
+      }, 3000);
+    }
+
+    // Event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('connect-wallet').addEventListener('click', connectWallet);
+      document.getElementById('disconnect-wallet').addEventListener('click', disconnectWallet);
+      document.getElementById('stake-btn').addEventListener('click', stakeTokens);
+      document.getElementById('unstake-btn').addEventListener('click', unstakeTokens);
+      document.getElementById('claim-btn').addEventListener('click', claimRewards);
+      
+      // Set current year
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Initialize
+      initSolana();
+    });
+  </script>
+</body>
+</html>

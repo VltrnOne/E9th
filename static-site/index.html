@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>E9TH — where utility comes full circle.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="E9TH is a Solana-based utility token unlocking discounts, early access, and exclusive products. Utility-first, deflationary, and security-forward." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="E9TH — where utility comes full circle." />
+  <meta property="og:description" content="Unlock discounts, early access, and exclusive products on Solana." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/e9th-og.png" />
+  <meta property="og:url" content="https://e9th.org/" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@E9TH" />
+  <meta name="twitter:title" content="E9TH — where utility comes full circle." />
+  <meta name="twitter:description" content="Unlock discounts, early access, and exclusive products on Solana." />
+  <meta name="twitter:image" content="/assets/e9th-og.png" />
+
+  <link rel="icon" href="/assets/e9th-favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:#0B0B10; --card:#151621; --text:#E9ECF1; --muted:#9AA1AC;
+      --violet:#7B61FF; --blue:#3EC3FF; --silver:#C9CED6; --ok:#34d399;
+    }
+    *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    a{color:var(--blue);text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:36px;height:36px}
+    nav a{margin:0 10px;color:var(--silver)}
+    .hero{padding:64px 0 24px;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+    .hero h1{font-size:44px;line-height:1.1;margin:0 0 12px}
+    .hero p{color:var(--muted);font-size:18px}
+    .cta{display:flex;gap:12px;margin-top:20px}
+    .btn{padding:12px 18px;border-radius:10px;border:1px solid transparent;font-weight:600;cursor:pointer}
+    .btn-primary{background:linear-gradient(135deg,var(--violet),var(--blue));color:#0A0A0A}
+    .btn-secondary{border-color:#303244;color:var(--text);background:#151621}
+    .pill{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:#8BEAFF;background:#0f1a2b;border:1px solid #1b2d4a;padding:6px 10px;border-radius:999px}
+    .grid{display:grid;gap:16px}
+    .features{grid-template-columns:repeat(3,1fr);margin:36px 0}
+    .card{background:var(--card);border:1px solid #242537;border-radius:14px;padding:18px}
+    .card h3{margin:0 0 8px}
+    .muted{color:var(--muted)}
+    .section{padding:28px 0}
+    .tokenomics{grid-template-columns:1.2fr .8fr}
+    .list{margin:10px 0 0;padding-left:18px}
+    .ticker{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+    .ticker .chip{background:#10131b;border:1px solid #23263a;padding:8px 10px;border-radius:10px;font-size:13px}
+    footer{border-top:1px solid #202233;margin-top:36px;padding:24px 0;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    @media (max-width:960px){
+      .hero{grid-template-columns:1fr}
+      .features,.tokenomics{grid-template-columns:1fr}
+      nav{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header aria-label="site header">
+      <div class="brand">
+        <img src="/assets/e9th-logo.png" alt="E9TH logo" />
+        <strong>E9TH</strong>
+      </div>
+      <nav aria-label="primary">
+        <a href="#utility">Utility</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#security">Security</a>
+        <a href="/litepaper">Litepaper</a>
+        <a href="https://twitter.com/E9TH" rel="noopener">Twitter</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="top">
+      <div>
+        <span class="pill">Solana • Utility Token</span>
+        <h1>E9TH — where utility comes full circle.</h1>
+        <p>Unlock discounts, early access, and exclusive products on Solana. Utility-first, deflationary, and security-forward.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="/app.html">Launch App</a>
+          <a class="btn btn-secondary" href="/litepaper">Read Litepaper</a>
+        </div>
+        <div class="ticker" aria-label="quick facts">
+          <span class="chip">Ticker: <strong>E9TH</strong></span>
+          <span class="chip">Chain: <strong>Solana</strong></span>
+          <span class="chip">Supply: <strong>10,000,000,000</strong></span>
+          <span class="chip">Model: <strong>Deflationary</strong></span>
+        </div>
+      </div>
+      <div aria-hidden="true">
+        <div class="card" style="height:100%;display:flex;align-items:center;justify-content:center;text-align:center;background:
+          radial-gradient(120px 120px at 70% 20%, rgba(126,97,255,.35), transparent 60%),
+          radial-gradient(180px 160px at 30% 70%, rgba(62,195,255,.28), transparent 60%),
+          var(--card);">
+          <img src="/assets/e9th-hero.png" alt="" style="max-width:90%;border-radius:12px;border:1px solid #23263a"/>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="utility">
+      <div class="grid features">
+        <div class="card">
+          <h3>Instant Utility</h3>
+          <p class="muted">Use E9TH to redeem discounts, access tools, and unlock services from day one.</p>
+        </div>
+        <div class="card">
+          <h3>Deflationary Design</h3>
+          <p class="muted">Transfers apply a configurable burn, decreasing supply over time.</p>
+        </div>
+        <div class="card">
+          <h3>Transparent Security</h3>
+          <p class="muted">Multisig ownership, pause/blacklist controls, on-chain logs, and optional timelocks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tokenomics">
+      <div class="grid tokenomics">
+        <div class="card">
+          <h3>Tokenomics Snapshot</h3>
+          <ul class="list">
+            <li><strong>Ticker:</strong> E9TH</li>
+            <li><strong>Chain:</strong> Solana (SPL / Token-2022 compatible)</li>
+            <li><strong>Total Supply:</strong> 10,000,000,000</li>
+            <li><strong>Initial Price:</strong> $0.00005</li>
+            <li><strong>Allocation:</strong></li>
+            <ul class="list">
+              <li>Public Sale — 40% (4,000,000,000)</li>
+              <li>Team & Founders — 20% (2,000,000,000)</li>
+              <li>Marketing & Rewards — 15% (1,500,000,000)</li>
+              <li>Liquidity — 15% (1,500,000,000)</li>
+              <li>Treasury — 10% (1,000,000,000)</li>
+            </ul>
+          </ul>
+          <div class="cta"><a class="btn btn-secondary" href="/tokenomics">View Full Tokenomics</a></div>
+        </div>
+        <div class="card">
+          <h3>Live Stats (coming soon)</h3>
+          <p class="muted">Holders, volume, and total burned will appear here after launch.</p>
+          <ul class="list muted">
+            <li>Holders: —</li>
+            <li>Total Burned: —</li>
+            <li>Circulating Supply: —</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="security">
+      <div class="grid" style="grid-template-columns:1fr 1fr;gap:16px">
+        <div class="card">
+          <h3>Security & Governance</h3>
+          <ul class="list">
+            <li>Owner: multisig; Operator: day-to-day ops; Treasury: rewards</li>
+            <li>Emergency pause & blacklist protection</li>
+            <li>On-chain logs; optional timelocks for critical changes</li>
+            <li>Open-source code & independent audits</li>
+          </ul>
+          <div class="cta"><a class="btn btn-secondary" href="/security">Read Security Overview</a></div>
+        </div>
+        <div class="card">
+          <h3>Staking & Airdrops</h3>
+          <ul class="list">
+            <li>Simple, transparent staking rewards from a defined pool</li>
+            <li>Batched, verifiable airdrops with public tx logs</li>
+            <li>Exclusives: gated software, solutions, premium offerings</li>
+          </ul>
+          <div class="cta"><a class="btn btn-secondary" href="/staking">Stake E9TH</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h3>Roadmap</h3>
+        <ul class="list">
+          <li><strong>Phase 1:</strong> Token launch, explorer metadata, website & litepaper, staking v1</li>
+          <li><strong>Phase 2:</strong> Partner utilities, dashboard with burn tracker, first curated airdrops</li>
+          <li><strong>Phase 3:</strong> Expanded utility marketplace, mobile-friendly portal, integrations</li>
+        </ul>
+        <div class="cta"><a class="btn btn-primary" href="/updates">Follow Updates</a></div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> E9TH • Not a DAO • Not financial advice.</div>
+      <div>
+        <a href="https://twitter.com/E9TH" rel="noopener">Twitter</a> •
+        <a href="/litepaper">Litepaper</a> •
+        <a href="/contact">Contact</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+[package]
+name = "e9th_token_program"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+solana-program = "1.18"
+borsh = "0.10"
+borsh-derive = "0.10"
+thiserror = "1.0"
+spl-token = "4.0"
+spl-token-2022 = "0.1"
+spl-associated-token-account = "2.0"
+spl-memo = "4.0"
+num-traits = "0.2"
+num-derive = "0.3"
+
+[features]
+no-entrypoint = []
+
+[dev-dependencies]
+solana-program-test = "1.18"
+solana-sdk = "1.18"
+tokio = "1.0"

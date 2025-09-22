@@ -1,0 +1,32 @@
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="metallicGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8E8E8"/>
+      <stop offset="25%" style="stop-color:#B8C5D6"/>
+      <stop offset="50%" style="stop-color:#7B61FF"/>
+      <stop offset="75%" style="stop-color:#3EC3FF"/>
+      <stop offset="100%" style="stop-color:#8BEAFF"/>
+    </linearGradient>
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1d2e"/>
+      <stop offset="50%" style="stop-color:#0B0B10"/>
+      <stop offset="100%" style="stop-color:#151621"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="18" cy="18" r="18" fill="url(#backgroundGradient)"/>
+  
+  <!-- E9TH Text -->
+  <text x="18" y="26" font-family="Inter, sans-serif" font-size="16" font-weight="800" text-anchor="middle" fill="url(#metallicGradient)" filter="url(#glow)">E9</text>
+  
+  <!-- TH superscript -->
+  <text x="26" y="20" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle" fill="url(#metallicGradient)" filter="url(#glow)">TH</text>
+</svg>
