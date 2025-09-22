@@ -86,6 +86,7 @@
     @media (max-width:480px){
       .utility-grid,.security-grid,.roadmap-grid{grid-template-columns:1fr}
     }
+    .e9th-pie { max-width: 260px; width: 100%; height: auto; display: block; margin: 8px 0; }
   </style>
 </head>
 <body>
@@ -113,8 +114,8 @@
           <img src="/assets/e9th-logo.png" alt="E9TH Logo" class="emblem-logo" />
           <div class="emblem-glow"></div>
         </div>
-        <h1>E9TH — where utility comes full <span class="highlight">circle</span>.</h1>
-        <p class="hero-subtitle">Unlock discounts, early access, and exclusive products on Solana. Utility-first, deflationary, and security-forward.</p>
+        <h1>E9TH — where utility comes full circle.</h1>
+        <p class="hero-subtitle">Unlock discounts, early access, and exclusive products on Solana.</p>
         <div class="hero-stats">
           <span class="chip">Total Supply: <strong>10,000,000,000</strong></span>
           <span class="chip">Initial Price: <strong>$0.00005</strong></span>
@@ -190,13 +191,31 @@
           <div class="cta"><a class="btn btn-secondary" href="/tokenomics">View Full Tokenomics</a></div>
         </div>
         <div class="card">
-          <h3>Live Stats (coming soon)</h3>
-          <p class="muted">Holders, volume, and total burned will appear here after launch.</p>
-          <ul class="list muted">
-            <li>Holders: —</li>
-            <li>Total Burned: —</li>
-            <li>Circulating Supply: —</li>
-          </ul>
+          <h3>Allocation</h3>
+          <svg class="e9th-pie" viewBox="0 0 42 42" role="img" aria-labelledby="allocTitle allocDesc">
+            <title id="allocTitle">E9TH Token Allocation</title>
+            <desc id="allocDesc">Public Sale 40%, Team & Founders 20%, Marketing & Rewards 15%, Liquidity 15%, Treasury 10%.</desc>
+
+            <!-- Background ring -->
+            <circle cx="21" cy="21" r="15.915" fill="none" stroke="#1f2233" stroke-width="6" />
+
+            <!-- Slices (sum 100). Rotate -90 via path math baked in (no CSS transform to avoid layout shifts) -->
+            <!-- Public Sale 40% -->
+            <circle cx="21" cy="21" r="15.915" fill="none" stroke="#7B61FF" stroke-width="6"
+                    stroke-dasharray="40 60" stroke-dashoffset="25" />
+            <!-- Team 20% -->
+            <circle cx="21" cy="21" r="15.915" fill="none" stroke="#3EC3FF" stroke-width="6"
+                    stroke-dasharray="20 80" stroke-dashoffset="-15" />
+            <!-- Marketing 15% -->
+            <circle cx="21" cy="21" r="15.915" fill="none" stroke="#C9CED6" stroke-width="6"
+                    stroke-dasharray="15 85" stroke-dashoffset="-35" />
+            <!-- Liquidity 15% -->
+            <circle cx="21" cy="21" r="15.915" fill="none" stroke="#9AA1AC" stroke-width="6"
+                    stroke-dasharray="15 85" stroke-dashoffset="-50" />
+            <!-- Treasury 10% -->
+            <circle cx="21" cy="21" r="15.915" fill="none" stroke="#50E3C2" stroke-width="6"
+                    stroke-dasharray="10 90" stroke-dashoffset="-65" />
+          </svg>
         </div>
       </div>
     </section>
