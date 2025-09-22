@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>E9TH Tokenomics — Complete Overview</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Complete E9TH tokenomics overview including allocation, distribution, and deflationary mechanics." />
+
+  <link rel="icon" href="/assets/favicon/e9th-favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:#0B0B10; --card:#151621; --text:#E9ECF1; --muted:#9AA1AC;
+      --violet:#7B61FF; --blue:#3EC3FF; --silver:#C9CED6; --ok:#34d399;
+    }
+    *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    a{color:var(--blue);text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:36px;height:36px}
+    nav a{margin:0 10px;color:var(--silver)}
+    .btn{padding:12px 18px;border-radius:10px;border:1px solid transparent;font-weight:600;cursor:pointer}
+    .btn-primary{background:linear-gradient(135deg,var(--violet),var(--blue));color:#0A0A0A}
+    .btn-secondary{border-color:#303244;color:var(--text);background:#151621}
+    .card{background:var(--card);border:1px solid #242537;border-radius:14px;padding:18px;margin:16px 0}
+    .card h3{margin:0 0 8px}
+    .muted{color:var(--muted)}
+    .list{margin:10px 0 0;padding-left:18px}
+    .grid{display:grid;gap:16px}
+    .tokenomics{grid-template-columns:1.2fr .8fr}
+    .e9th-pie { max-width: 260px; width: 100%; height: auto; display: block; margin: 8px 0; }
+    footer{border-top:1px solid #202233;margin-top:36px;padding:24px 0;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    @media (max-width:960px){
+      .tokenomics{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <img src="/assets/e9th-logo.png" alt="E9TH logo" width="36" height="36" />
+        <strong>E9TH</strong>
+      </div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/#utility">Utility</a>
+        <a href="/#tokenomics">Tokenomics</a>
+        <a href="/#security">Security</a>
+        <a href="/litepaper">Litepaper</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>E9TH Tokenomics</h1>
+      <p class="muted">Complete overview of token distribution, allocation, and deflationary mechanics.</p>
+
+      <div class="grid tokenomics">
+        <div class="card">
+          <h3>Token Details</h3>
+          <ul class="list">
+            <li><strong>Ticker:</strong> E9TH</li>
+            <li><strong>Chain:</strong> Solana (SPL / Token-2022 compatible)</li>
+            <li><strong>Total Supply:</strong> 10,000,000,000</li>
+            <li><strong>Initial Price:</strong> $0.00005</li>
+            <li><strong>Decimals:</strong> 9</li>
+            <li><strong>Model:</strong> Deflationary</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Allocation</h3>
+          <svg class="e9th-pie" viewBox="0 0 42 42" role="img" aria-labelledby="allocTitle allocDesc">
+            <title id="allocTitle">E9TH Token Allocation</title>
+            <desc id="allocDesc">Public Sale 40%, Team & Founders 20%, Marketing & Rewards 15%, Liquidity 15%, Treasury 10%.</desc>
+
+            <!-- Background ring -->
+            <circle cx="21" cy="21" r="15.915" fill="none" stroke="#1f2233" stroke-width="6" />
+
+            <!-- Slices -->
+            <circle cx="21" cy="21" r="15.915" fill="none" stroke="#7B61FF" stroke-width="6"
+                    stroke-dasharray="40 60" stroke-dashoffset="25" />
+            <circle cx="21" cy="21" r="15.915" fill="none" stroke="#3EC3FF" stroke-width="6"
+                    stroke-dasharray="20 80" stroke-dashoffset="-15" />
+            <circle cx="21" cy="21" r="15.915" fill="none" stroke="#C9CED6" stroke-width="6"
+                    stroke-dasharray="15 85" stroke-dashoffset="-35" />
+            <circle cx="21" cy="21" r="15.915" fill="none" stroke="#9AA1AC" stroke-width="6"
+                    stroke-dasharray="15 85" stroke-dashoffset="-50" />
+            <circle cx="21" cy="21" r="15.915" fill="none" stroke="#50E3C2" stroke-width="6"
+                    stroke-dasharray="10 90" stroke-dashoffset="-65" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Distribution Breakdown</h3>
+        <ul class="list">
+          <li><strong>Public Sale — 40% (4,000,000,000 E9TH)</strong><br>
+              Available for public purchase at launch. No vesting period.</li>
+          <li><strong>Team & Founders — 20% (2,000,000,000 E9TH)</strong><br>
+              24-month linear vesting starting 6 months after launch.</li>
+          <li><strong>Marketing & Rewards — 15% (1,500,000,000 E9TH)</strong><br>
+              Community rewards, partnerships, and marketing initiatives.</li>
+          <li><strong>Liquidity — 15% (1,500,000,000 E9TH)</strong><br>
+              Initial liquidity provision and market making.</li>
+          <li><strong>Treasury — 10% (1,000,000,000 E9TH)</strong><br>
+              Staking rewards pool and future development funding.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Deflationary Mechanics</h3>
+        <ul class="list">
+          <li><strong>Burn Rate:</strong> 0.5% on all transfers (50 basis points)</li>
+          <li><strong>Burn Destination:</strong> Tokens are permanently removed from circulation</li>
+          <li><strong>Exemptions:</strong> Staking rewards and airdrops are not subject to burn</li>
+          <li><strong>Impact:</strong> Gradually reduces total supply over time, increasing scarcity</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Staking Rewards</h3>
+        <ul class="list">
+          <li><strong>Source:</strong> Treasury allocation (1,000,000,000 E9TH)</li>
+          <li><strong>APY:</strong> Variable based on staking participation</li>
+          <li><strong>Minimum Stake:</strong> 1,000 E9TH</li>
+          <li><strong>Unstaking Period:</strong> 7 days</li>
+          <li><strong>Rewards:</strong> Distributed daily from the treasury pool</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Governance & Security</h3>
+        <ul class="list">
+          <li><strong>Multisig Ownership:</strong> 3-of-5 multisig for critical operations</li>
+          <li><strong>Emergency Pause:</strong> Ability to halt transfers if needed</li>
+          <li><strong>Blacklist Protection:</strong> On-chain blacklist for malicious addresses</li>
+          <li><strong>Transparency:</strong> All operations logged on-chain</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Roadmap & Milestones</h3>
+        <ul class="list">
+          <li><strong>Phase 1:</strong> Token launch, staking v1, website & litepaper</li>
+          <li><strong>Phase 2:</strong> Partner integrations, holder dashboard, burn tracker</li>
+          <li><strong>Phase 3:</strong> Expanded marketplace, mobile app, scaling rewards</li>
+        </ul>
+      </div>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> E9TH • Not a DAO • Not financial advice.</div>
+      <div>
+        <a href="https://twitter.com/E9TH" rel="noopener">Twitter</a> •
+        <a href="/litepaper">Litepaper</a> •
+        <a href="/">Home</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
